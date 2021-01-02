@@ -25,7 +25,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="travel_packages_id">Paket Travel</label>
-                    <select name="travel_packages_id" required class="form-control">
+                    <select name="travel_packages_id" required class="form-control{{ $errors->has('travel_packages_id') ? ' is-invalid' : ''}}">
                         <option value="">Pilih Paket Travel</option>
                         @foreach ($travel_packages as $travel_package)
                             <option value="{{$travel_package->id}}">
@@ -33,10 +33,12 @@
                             </option>
                         @endforeach
                     </select>
+                    {!! $errors->first('travel_packages_id', '<span class="invalid-feedback">:message</span>')!!}
                 </div>
                 <div class="form-group">
                     <label for="image">Image</label>
-                    <input type="file" class="form-control" name="image" placeholder="Image">
+                    <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : ''}}" name="image" placeholder="Image">
+                    {!! $errors->first('image', '<span class="invalid-feedback">:message</span>')!!}
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     Simpan

@@ -37,7 +37,8 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Image</label>
-                    <input type="file" class="form-control" name="image" placeholder="Image">
+                    <input type="file" class="form-control{{ $errors->has('image') ? ' is-invalid' : ''}}" name="image" placeholder="Image">
+                    {!! $errors->first('image', '<span class="invalid-feedback">:message</span>')!!}
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     Ubah
