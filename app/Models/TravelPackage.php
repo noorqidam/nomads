@@ -11,7 +11,7 @@ class TravelPackage extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = [
-        'title', 'slug', 'location', 'about', 'featured_event', 'language', 'foods', 'departure_date', 'duration', 'type', 'price'
+        'title', 'slug', 'location', 'about', 'featured_event', 'language', 'foods', 'departure_date', 'duration', 'type', 'price', 'image_cover'
     ];
 
     protected $hidden = [];

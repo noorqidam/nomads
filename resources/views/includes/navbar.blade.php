@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <div class="container">
-    <nav class="row navbar navbar-expand-lg navbar-light bg-white">
-      <a href="{{route('home')}}" class="navbar-brand">
+    <nav class="row navbar navbar-expand-lg navbar-light bg-white" data-aos="zoom-in" data-aos-duration="1000">
+      <a href="{{route('home')}}" class="navbar-brand" >
         <img src="{{url('frontend/images/logo_nomads@2x.png')}}" alt="Logo NOMADS">
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">

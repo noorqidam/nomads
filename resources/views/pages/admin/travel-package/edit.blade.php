@@ -21,7 +21,7 @@
 
     <div class="card shadow">
         <div class="card-body">
-            <form action="{{ route('travel-package.update', $item->id) }}" method="post">
+            <form action="{{ route('travel-package.update', $item->id) }}" method="post" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
@@ -63,6 +63,10 @@
                 <div class="form-group">
                     <label for="price">Price</label>
                     <input type="number" class="form-control" name="price" placeholder="Price" value="{{ $item->price }}">
+                </div>
+                <div class="form-group">
+                    <label for="image_cover">Image Cover</label>
+                    <input type="file" class="form-control" name="image_cover" placeholder="Image">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     Ubah

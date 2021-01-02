@@ -44,6 +44,11 @@ class TravelPackageController extends Controller
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
+        $data['image_cover'] = $request->file('image_cover')->store(
+            'assets/gallery',
+            'public'
+        );
+
 
         TravelPackage::create($data);
         return redirect()->route('travel-package.index');
@@ -86,6 +91,10 @@ class TravelPackageController extends Controller
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->title);
+        $data['image_cover'] = $request->file('image_cover')->store(
+            'assets/gallery',
+            'public'
+        );
 
         $item = TravelPackage::findOrFail($id);
 

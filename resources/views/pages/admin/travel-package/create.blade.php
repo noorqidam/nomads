@@ -21,7 +21,7 @@
 
     <div class="card shadow">
         <div class="card-body">
-            <form action="{{ route('travel-package.store') }}" method="post">
+            <form action="{{ route('travel-package.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="title">Title</label>
@@ -62,6 +62,10 @@
                 <div class="form-group">
                     <label for="price">Price</label>
                     <input type="number" class="form-control" name="price" placeholder="Price" value="{{ old('price') }}">
+                </div>
+                <div class="form-group">
+                    <label for="image_cover">Image Cover</label>
+                    <input type="file" class="form-control" name="image_cover" placeholder="Image" value="{{ old('image_cover') }}">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
                     Simpan
