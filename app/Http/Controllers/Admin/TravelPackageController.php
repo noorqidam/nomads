@@ -49,9 +49,10 @@ class TravelPackageController extends Controller
             'public'
         );
 
-
+        // dd($data);
         TravelPackage::create($data);
-        return redirect()->route('travel-package.index');
+
+        return redirect()->route('travel-package.index')->with('success', 'Data berhasil ditambah');;
     }
 
     /**
@@ -100,7 +101,7 @@ class TravelPackageController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('travel-package.index');
+        return redirect()->route('travel-package.index')->with('success', 'Data berhasil diubah');;
     }
 
     /**

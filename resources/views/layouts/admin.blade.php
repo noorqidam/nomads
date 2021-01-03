@@ -27,6 +27,8 @@
 
        @include('includes.admin.navbar')
 
+       @include('includes.admin.alert')
+
        @yield('content')
 
       </div>

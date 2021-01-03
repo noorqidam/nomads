@@ -23,7 +23,10 @@
         <div class="card-body">
             <form action="{{ route('travel-package.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                @include('pages.admin.travel-package.partials.form')
+                @include('pages.admin.travel-package.partials.form', [
+                    'item' => new App\Models\TravelPackage,
+                    'submit_button' => "Save"
+                ])
             </form>
         </div>
     </div>
