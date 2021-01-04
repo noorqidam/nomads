@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use App\Models\TravelPackage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -53,7 +54,7 @@ class GalleryController extends Controller
         );
 
         Gallery::create($data);
-        return redirect()->route('gallery.index');
+        return redirect()->route('gallery.index')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -93,17 +94,18 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $item = Gallery::findOrFail($id);
         $data = $request->all();
         $data['image'] = $request->file('image')->store(
             'assets/gallery',
             'public'
         );
 
-        $item = Gallery::findOrFail($id);
+        Storage::disk('local')->delete('public/' . $item->image);
 
         $item->update($data);
 
-        return redirect()->route('gallery.index');
+        return redirect()->route('gallery.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -115,6 +117,7 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $item = Gallery::findOrFail($id);
+        Storage::disk('local')->delete('public/' . $item->image);
         $item->delete();
 
         return redirect()->route('gallery.index');

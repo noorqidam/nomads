@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TravelPackageRequest;
 use App\Models\TravelPackage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class TravelPackageController extends Controller
@@ -49,10 +50,9 @@ class TravelPackageController extends Controller
             'public'
         );
 
-        // dd($data);
         TravelPackage::create($data);
 
-        return redirect()->route('travel-package.index')->with('success', 'Data berhasil ditambah');;
+        return redirect()->route('travel-package.index')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -99,6 +99,8 @@ class TravelPackageController extends Controller
 
         $item = TravelPackage::findOrFail($id);
 
+        Storage::disk('local')->delete('public/' . $item->image);
+
         $item->update($data);
 
         return redirect()->route('travel-package.index')->with('success', 'Data berhasil diubah');;
@@ -113,6 +115,7 @@ class TravelPackageController extends Controller
     public function destroy($id)
     {
         $item = TravelPackage::findorFail($id);
+        Storage::disk('local')->delete('public/' . $item->image);
         $item->delete();
 
         return redirect()->route('travel-package.index');

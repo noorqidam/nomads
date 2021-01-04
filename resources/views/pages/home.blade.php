@@ -63,7 +63,7 @@
     <section class="section-popular-content" id="popularContent" data-aos="zoom-in" data-aos-duration="1000">
       <div class="container">
         <div class="section-popular-travel row justify-content-center">
-          @foreach ($items as $item)
+          @foreach ($items->take(4) as $item)
           <div class="col-sm-6 col-md-4 col-lg-3">
             <div class="card-travel text-center d-flex flex-column"
               style="background-image: url('{{Storage::url($item->image_cover)}}');">
