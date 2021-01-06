@@ -14,9 +14,7 @@
             <form action="{{ route('travel-package.update', $item->id) }}" method="post" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                @include('pages.admin.travel-package.partials.form', [
-                    'submit_button' => "Update"
-                ])
+                @include('pages.admin.travel-package.partials.form')
             </form>
         </div>
     </div>

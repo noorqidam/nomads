@@ -32,7 +32,10 @@ class TravelPackageController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.travel-package.create');
+        return view('pages.admin.travel-package.create', [
+            'item' => new TravelPackage,
+            'submit_button' => 'Save'
+        ]);
     }
 
     /**
@@ -77,7 +80,8 @@ class TravelPackageController extends Controller
         $item = TravelPackage::findOrFail($id);
 
         return view('pages.admin.travel-package.edit', [
-            'item' => $item
+            'item' => $item,
+            'submit_button' => 'Update'
         ]);
     }
 
