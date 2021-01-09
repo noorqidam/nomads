@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
+Route::get('/verification', HomeController::class, 'verification')
+    ->name('home-verification');
+
 Route::get('/detail/{slug}', [DetailController::class, 'index'])
     ->name('detail');
 

@@ -21,6 +21,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'username',
         'email',
         'password',
+        'token_activation',
+        'isVerified'
     ];
 
     /**
@@ -49,5 +51,4 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
-
 }

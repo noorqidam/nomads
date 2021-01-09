@@ -15,6 +15,9 @@
 
 <body>
     @include('includes.navbar')
+    <div class="container">
+        @include('includes.admin.alert')
+    </div>
     @yield('content')
     @include('includes.footer')
 

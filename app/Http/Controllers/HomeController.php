@@ -14,4 +14,9 @@ class HomeController extends Controller
             'items' => $items
         ]);
     }
+
+    public function verification()
+    {
+        return view('auth.verification');
+    }
 }
