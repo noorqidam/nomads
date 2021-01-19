@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\TransactionController;
@@ -13,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
-Route::get('/verification', HomeController::class, 'verification')
-    ->name('home-verification');
+Route::get('/verification', [ActivationController::class, 'verification'])
+    ->name('verification');
+
+Route::post('/post/verification', [ActivationController::class, 'postVerification'])
+    ->name('verification-post');
+
+Route::post('/post/resend', [ActivationController::class, 'postResend'])
+    ->name('verification-resend');
 
 Route::get('/detail/{slug}', [DetailController::class, 'index'])
     ->name('detail');

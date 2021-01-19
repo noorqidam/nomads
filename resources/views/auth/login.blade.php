@@ -47,9 +47,9 @@
                             <button type="submit" class="btn btn-login btn-block mb-3">
                                 {{ __('Sign In') }}
                             </button>
-                            <div class="text-center">
+                            <div class="float-left">
                                 @if (Route::has('password.request'))
-                                    <a href="{{ route('password.request') }}">
+                                    <a href="{{ route('password.request') }}" style="font-family: 'Assistent', sans-serif; color: #071C4D !important; text-decoration: none">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif

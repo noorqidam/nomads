@@ -90,6 +90,6 @@ class RegisterController extends Controller
         // send email
         event(new UserActivationEmail($user));
         $this->guard()->logout();
-        return redirect()->route('login')->withSuccess('Registrasi Berhasil, silahkan cek email untuk Aktivasi');
+        return redirect()->route('verification')->withSuccess('Registrasi Berhasil, silahkan cek email untuk Aktivasi');
     }
 }
